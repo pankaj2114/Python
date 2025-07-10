@@ -16,3 +16,4 @@ print(Dic["topics"])
 Dic["Name"] = "Pankaj"
 Dic["SName"] = "Verma"
 print(Dic)
+print(Dic["Age"])
