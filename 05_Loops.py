@@ -10,13 +10,13 @@ while(i):
 #Print number from 1  to 100
 i=1
 while( i <= 100):
-    print(i)
+    #print(i)
     i +=1
 
 #Print 100 to 1
 i = 100
 while( i >= 1):
-    print(i)
+    #print(i)
     i -=1
 
 #print table of a number entered by the user
@@ -74,15 +74,18 @@ else:
 
 ## Print 1 to 100 using for loop
 for i in range(101): #start from 0 bydefault
-    print(i)
+    #print(i)
+    pass
 
 # print 1 to 100
 for i in range(1,100,1):
-    print("1 to 100->",i)
+    #print("1 to 100->",i)
+    pass
 
 # print 100 to 1
 for i in range(100,0,-1):
-    print("100 to 1->",i)
+    #print("100 to 1->",i)
+    pass
 
 # pass in loop 
 #If we do not want to perform any task inside the loop then we use pass
@@ -123,3 +126,80 @@ while n <= 1:
     fact *= n
     n -=1
 print("factorial of ",n,"is ",fact,"using for loop")
+
+def countDigit(n):        
+        count = 0
+        if(n == 0):
+            print("count is:", 1)
+            return
+        while(n > 0):
+            n= n//10
+            count +=1            
+        print("count is:",count)
+
+countDigit(0)
+
+def RNumber(n):
+    Tmp = 0
+    while(n>0):
+        Tmp = Tmp*10 + n % 10
+        n = n // 10
+    return Tmp
+
+n = RNumber(123456789) 
+print("Reversed Number: ",n)
+
+
+#Implementing Binary Search in a sorter list 
+def BinarySearch(list,n):
+    start_index = 0
+    end_index = len(list) - 1
+    mid_index = (start_index + end_index) // 2
+
+    while (start_index < end_index):
+        if(n == list[mid_index]):
+            return mid_index
+        elif(n < list[mid_index]):
+            end_index = mid_index - 1
+            mid_index = (start_index + end_index) // 2
+        else:
+            start_index = mid_index + 1
+            mid_index = (start_index + end_index) // 2
+    return -1
+
+sorted_list = [1,5,9,18,79,89,98]
+n = 100
+Find_Index = BinarySearch(sorted_list,n)
+if(Find_Index >= 0):
+    print(n,"Found at Index in list :",Find_Index)
+else:
+    print(n," Does Not Exist in list")
+
+
+def Selection_Sort(list):
+    for i in range(0,len(list),1):
+        index = i
+        for j in range(i,len(list)-1,1):
+            if(list[index] >= list[j+1]):
+                index = j+1
+        tmp = list[i]
+        list[i] = list[index]
+        list[index] = tmp
+
+list = [5,4,6,7,0,3,23,43,34,64,75,75,68,2,3,4,7,1,0]
+Selection_Sort(list)
+print('Using Selection Sort',list)
+
+def Bubble_Sort(list):
+    n = len(list)
+    for i in range(0,n,1):
+        for j in range(0,n-i-1,1):
+            if(list[j] > list[j+1]):
+                tmp = list[j]
+                list[j] =list[j+1]
+                list[j+1] = tmp
+
+list = [5,4,6,7,0,3,23,43,34,64,75,75,68,2,3,4,7,1,0]
+Bubble_Sort(list)
+print("Using Bubble Sort :-",list)
+

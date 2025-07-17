@@ -121,3 +121,48 @@ Div.printHello()
 DivyansClass.printHello() #statics Methods can be access through class name directly
 
 print("oops concepts")
+
+## del keyword
+
+del Learner1.Learner_Name #delete name attribute of Learner1
+#print(Learner1.Learner_Name) #Now I cann't access Learner_Name attribute
+
+""" 
+Access Modifier
+attribute Name -> Public
+          _Name -> Protected
+          __Name -> Private
+"""
+#Inheritance
+"""
+Single Inheritance Toyota(Car) -->Car is parent class
+Multi-level Inheritance Fortuner(Toyota)
+Multiple Inheritance(Inherite more than one class) Fortuner(Car,Toyota)
+"""
+
+# Using Super() method to set the value of parent class attribute 
+
+class Car:
+    def __init__(self,type):
+        self.type = type
+    @staticmethod
+    def start():
+        print("Car Started..")
+
+    @staticmethod
+    def  stop():
+        print("Car stopped..")
+
+class Toyota(Car):
+    def __init__(self,name ,type):
+        super().__init__(type)
+        self.name = name
+
+toy = Toyota("fortuner","electric")
+print(toy.name)
+print(toy.type)
+print(toy.start)
+print(toy.stop)
+
+
+

@@ -1,0 +1,52 @@
+#Implementing Binary Search in a sorter list 
+def BinarySearch(list,n):
+    start_index = 0
+    end_index = len(list) - 1
+    mid_index = (start_index + end_index) // 2
+
+    while (start_index < end_index):
+        if(n == list[mid_index]):
+            return mid_index
+        elif(n < list[mid_index]):
+            end_index = mid_index - 1
+            mid_index = (start_index + end_index) // 2
+        else:
+            start_index = mid_index + 1
+            mid_index = (start_index + end_index) // 2
+    return -1
+
+sorted_list = [1,5,9,18,79,89,98]
+n = 100
+Find_Index = BinarySearch(sorted_list,n)
+if(Find_Index >= 0):
+    print(n,"Found at Index in list :",Find_Index)
+else:
+    print(n," Does Not Exist in list")
+
+
+def Selection_Sort(list):
+    for i in range(0,len(list),1):
+        index = i
+        for j in range(i,len(list)-1,1):
+            if(list[index] >= list[j+1]):
+                index = j+1
+        tmp = list[i]
+        list[i] = list[index]
+        list[index] = tmp
+
+list = [5,4,6,7,0,3,23,43,34,64,75,75,68,2,3,4,7,1,0]
+Selection_Sort(list)
+print('Using Selection Sort',list)
+
+def Bubble_Sort(list):
+    n = len(list)
+    for i in range(0,n,1):
+        for j in range(0,n-i-1,1):
+            if(list[j] > list[j+1]):
+                tmp = list[j]
+                list[j] =list[j+1]
+                list[j+1] = tmp
+
+list = [5,4,6,7,0,3,23,43,34,64,75,75,68,2,3,4,7,1,0]
+Bubble_Sort(list)
+print("Using Bubble Sort :-",list)
